@@ -19,11 +19,11 @@ const holidays = [
 server.get("/holidays", (request, response) => {
     response.send(holidays);
 });
-server.listen(4000)
+
 
 server.get('/is-today-holiday', (request, response) => {
   for (let i = 0; i < holidays.length; i++){
-      if (holidays[i].date.includes(hoje)){
+      if (holidays[i].date.includes(hoje.toLocaleDateString())){
           response.send(`Sim, hoje é ${holidays[i].name}`);
       }
   }  
